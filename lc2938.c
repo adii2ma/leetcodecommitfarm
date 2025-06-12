@@ -1,26 +1,19 @@
 long long minimumSteps(char* s) {
-    int q=0,k=0;
-    while(s[k+1]!='\0'){
-         
-        for(int i=0;s[i]!='\0';i++){
-            if(s[i]=='1'){
-                for(int j=i+1;s[j]!='\0';j++){
-                    if(s[j]=='0'){
-                        char temp=s[j];
-                        s[j]=s[i];
-                        s[i]=temp;
-                        q++;
-                    }
-                    else{
-                        k=j;
-                        break;
-                    }
-            }
-            
-        }else{
-            continue;
-        }
-    }}
-    return q;
+    long long q = 0;
+    int len = 0;
+    int z=0;
     
+    while (s[len] != '\0') len++;
+    
+    for(int i =0;i<len;i++){
+        if(s[i]=='1'){
+            z++;
+        }
+        if(z>=1 && s[i]=='0'){
+            q+=z;
+        }
+    }
+     
+
+    return q;
 }
